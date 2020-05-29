@@ -218,8 +218,7 @@ def main():
     best_mIoU = 0
     last_epoch = 0
     if config.TRAIN.RESUME:
-        model_state_file = os.path.join(final_output_dir,
-                                        'checkpoint.pth.tar')
+        model_state_file = F"/content/gdrive/My Drive/Streetscape Research/checkpoint.pth.tar"
         if os.path.isfile(model_state_file):
             checkpoint = torch.load(model_state_file, 
                         map_location=lambda storage, loc: storage)
@@ -262,6 +261,12 @@ def main():
                 'state_dict': model.module.state_dict(),
                 'optimizer': optimizer.state_dict(),
             }, os.path.join(final_output_dir,'checkpoint.pth.tar'))
+            torch.save({
+                 'epoch': epoch+1,
+                'best_mIoU': best_mIoU,
+                'state_dict': model.module.state_dict(),
+                'optimizer': optimizer.state_dict(),
+            }, F"/content/gdrive/My Drive/Streetscape Research/checkpoint.pth.tar")
 
             if mean_IoU > best_mIoU:
                 best_mIoU = mean_IoU
