@@ -1,5 +1,8 @@
 # High-resolution networks (HRNets) for Semantic Segmentation 
 
+##
+- We didn't use this because Pytorch is dated and difficult to use. Keras is a much better framework in terms of usability and portability, so we ended up going with that.
+
 ## Branches
 - This is the implementation for PyTroch 1.1.
 - The HRNet + OCR version ia available [here](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/HRNet-OCR).
